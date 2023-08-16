@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactList.module.css';
 import getRandomColor from 'helpers/randomColor';
 import { useState } from 'react';
-import { selectVisibleContacts } from 'Redux/Selectors';
+import { selectVisibleContacts } from 'Redux/Contacts/Selectors';
 import { ImSortAlphaAsc, ImSortAlphaDesc } from 'react-icons/im';
 import { FaRandom } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
@@ -11,7 +11,7 @@ import {
   sortContactAscend,
   sortContactDescend,
   fetchContacts,
-} from 'Redux/Operations';
+} from 'Redux/Contacts/Operations';
 
 const ContactList = () => {
   const [sortAscending, setSortAscending] = useState(true);
