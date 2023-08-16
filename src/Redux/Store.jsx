@@ -7,7 +7,7 @@ const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     filter: filterReducer,
-    register: AuthSliceReducers,
+    auth: AuthSliceReducers,
   },
 });
 
