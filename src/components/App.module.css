@@ -1,0 +1,32 @@
+.PhoneTitle {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.ContactTitle {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.wrap {
+  margin-top: 40px;
+  padding: 20px;
+  padding-top: 50px;
+  width: 800px;
+  min-height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-image: url(../Ipad-PNG-Photos.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 2%;
+}
+.container {
+  width: 350px;
+  height: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
