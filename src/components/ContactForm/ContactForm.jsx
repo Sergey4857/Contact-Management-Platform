@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function ContactForm() {
   const [name, setName] = useState('');
   const contacts = useSelector(selectContacts);
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -21,8 +21,8 @@ export default function ContactForm() {
         setName(value);
         break;
 
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         return;
@@ -31,18 +31,18 @@ export default function ContactForm() {
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    const newContact = { name, phone, id: nanoid() };
+    const newContact = { name, number, id: nanoid() };
 
     if (newContact.name.trim() === '') {
       return alert('Enter your name');
     }
-    const repeatingPhone = contacts.find(
-      value => value.phone === newContact.phone
+    const repeatingNumber = contacts.find(
+      value => value.number === newContact.number
     );
 
     const repeatingName = contacts.find(
@@ -50,9 +50,9 @@ export default function ContactForm() {
         value.name.toLowerCase().trim() === newContact.name.toLowerCase().trim()
     );
 
-    if (repeatingPhone) {
+    if (repeatingNumber) {
       return toast.success(
-        `Number: ${newContact.phone} is already in contacts`,
+        `Number: ${newContact.number} is already in contacts`,
         {
           position: 'top-right',
           autoClose: 3000,
@@ -98,11 +98,11 @@ export default function ContactForm() {
         className={css.contactInput}
         onChange={handleChange}
         type="tel"
-        name="phone"
+        name="number"
         placeholder="Enter your number"
         pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        value={phone}
+        value={number}
         required
       />
       <button className={css.contactButton} type="submit">
