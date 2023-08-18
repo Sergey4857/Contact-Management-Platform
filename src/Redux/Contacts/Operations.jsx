@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/contacts');
+      const response = await axios.get(
+        'https://64d4d634b592423e4694c1f9.mockapi.io/contacts'
+      );
 
       return response.data;
     } catch (error) {
@@ -20,7 +20,10 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (text, thunkAPI) => {
     try {
-      const response = await axios.post('/contacts', text);
+      const response = await axios.post(
+        'https://64d4d634b592423e4694c1f9.mockapi.io/contacts',
+        text
+      );
 
       return response.data;
     } catch (error) {
@@ -33,7 +36,9 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/contacts/${id}`);
+      const response = await axios.delete(
+        `https://64d4d634b592423e4694c1f9.mockapi.io/contacts/${id}`
+      );
 
       return response.data;
     } catch (error) {
@@ -46,8 +51,10 @@ export const sortContactAscend = createAsyncThunk(
   'contacts/sortContact',
   async (text, thunkAPI) => {
     try {
-      const response = await axios.get('/contacts?sortBy=name&order=asc');
-
+      const response = await axios.get(
+        'https://64d4d634b592423e4694c1f9.mockapi.io/contacts?sortBy=name&order=asc'
+      );
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -58,8 +65,10 @@ export const sortContactDescend = createAsyncThunk(
   'contacts/sortContact',
   async (text, thunkAPI) => {
     try {
-      const response = await axios.get('/contacts?sortBy=name&order=desc');
-
+      const response = await axios.get(
+        'https://64d4d634b592423e4694c1f9.mockapi.io/contacts?sortBy=name&order=desc'
+      );
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

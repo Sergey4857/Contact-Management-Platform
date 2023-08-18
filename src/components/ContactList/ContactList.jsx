@@ -49,7 +49,7 @@ const ContactList = () => {
         <FaRandom className={css.randomIcon} />
       </button>
       <ul className={css.contactList}>
-        {visibleContacts.map(({ id, name, number }) => (
+        {visibleContacts.map(({ id, name, phone }) => (
           <li className={css.contactItem} key={id}>
             <div
               style={{ backgroundColor: getRandomColor() }}
@@ -57,9 +57,9 @@ const ContactList = () => {
             >
               {name.slice(0, 1).toUpperCase()}
             </div>
-            {name} : {number}
+            {name} : {phone}
             <div className={css.contactWrapp}>
-              <a className={css.contactLink} href={`tel:${number}`}>
+              <a className={css.contactLink} href={`tel:${phone}`}>
                 <FiPhoneCall className={css.phoneIcon} />
               </a>
               <button
