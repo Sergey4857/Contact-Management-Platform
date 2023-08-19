@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import { refresh } from 'Redux/Auth/AuthOperations';
 import { useSelector } from 'react-redux';
 import { selectRefreshed } from 'Redux/Auth/AuthSelectors';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
 
 export function App() {
   const dispatch = useDispatch();
@@ -24,10 +26,35 @@ export function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} />
 
-            <Route path="phonebook" element={<PhonebookPage />} />
+            <Route
+              path="register"
+              element={
+                <RestrictedRoute
+                  component={Register}
+                  redirectTo="/phonebook"
+                ></RestrictedRoute>
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <RestrictedRoute
+                  component={Login}
+                  redirectTo="/phonebook"
+                ></RestrictedRoute>
+              }
+            />
+
+            <Route
+              path="phonebook"
+              element={
+                <PrivateRoute
+                  component={PhonebookPage}
+                  redirectTo="/login"
+                ></PrivateRoute>
+              }
+            />
           </Route>
         </Routes>
       </>

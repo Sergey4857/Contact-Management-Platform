@@ -54,7 +54,7 @@ export const sortContactAscend = createAsyncThunk(
       const response = await axios.get(
         'https://64d4d634b592423e4694c1f9.mockapi.io/contacts?sortBy=name&order=asc'
       );
-      console.log(response.data);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

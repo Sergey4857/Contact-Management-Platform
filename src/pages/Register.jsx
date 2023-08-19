@@ -17,7 +17,6 @@ const Register = () => {
 
   const onChange = e => {
     const input = e.currentTarget;
-    console.log(input.name);
 
     switch (input.name) {
       case 'name':
