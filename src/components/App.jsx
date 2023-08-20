@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
-import HomePage from 'pages/HomePage';
-import PhonebookPage from 'pages/PhonebookPage';
-import Login from 'pages/Login';
-import Register from 'pages/Register';
+import HomePage from 'pages/HomePage/HomePage';
+import PhonebookPage from 'pages/PhonebookPage/PhonebookPage';
+import Login from 'pages/Login/Login';
+import Register from 'pages/Register/Register';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refresh } from 'Redux/Auth/AuthOperations';

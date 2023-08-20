@@ -2,6 +2,7 @@
   color: #333;
   font-size: 24px;
   margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 .ContactTitle {
@@ -11,22 +12,26 @@
 }
 
 .wrap {
-  margin-top: 40px;
-  padding: 20px;
-  padding-top: 50px;
-  width: 800px;
-  min-height: 800px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  background-image: url(../Ipad-PNG-Photos.png);
+  background-image: url(../../Ipad-PNG-Photos.png);
   background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 2%;
+  height: 750px;
 }
 .container {
   width: 350px;
   height: 650px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 80px;
+}
+
+.content {
+  min-height: 95vh;
+  background-image: url(../../beach.jpg);
+  background-size: cover;
 }

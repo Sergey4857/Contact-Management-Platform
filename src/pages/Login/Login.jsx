@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { login } from 'Redux/Auth/AuthOperations';
 import { useState } from 'react';
+import css from './Login.module.css';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -31,17 +32,23 @@ const Login = () => {
     dispatch(login(personalData));
   };
   return (
-    <form onSubmit={onSubmit}>
-      <label>
+    <form className={css.formLogin} onSubmit={onSubmit}>
+      <label className={css.lblEmail}>
         Enter your email
-        <input onChange={onChange} name="email" />
+        <input className={css.inputEmail} onChange={onChange} name="email" />
       </label>
 
-      <label>
+      <label className={css.lblPassword}>
         Enter your password
-        <input onChange={onChange} name="password" />
+        <input
+          className={css.inputPassword}
+          onChange={onChange}
+          name="password"
+        />
       </label>
-      <button type="submit">Login</button>
+      <button className={css.button} type="submit">
+        Login
+      </button>
     </form>
   );
 };

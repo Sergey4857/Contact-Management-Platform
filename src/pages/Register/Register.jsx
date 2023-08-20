@@ -2,6 +2,8 @@ import { useDispatch } from 'react-redux';
 import { register } from 'Redux/Auth/AuthOperations';
 
 import { useState } from 'react';
+import css from './Register.module.css';
+
 const Register = () => {
   const dispatch = useDispatch();
 
@@ -39,23 +41,29 @@ const Register = () => {
 
   return (
     <>
-      <h1>Registration</h1>
-      <form onSubmit={onSubmit}>
-        <label>
+      <h1 className={css.title}>Registration</h1>
+      <form className={css.registerForm} onSubmit={onSubmit}>
+        <label className={css.lblName}>
           Enter your nickname
-          <input onChange={onChange} name="name" />
+          <input className={css.InputName} onChange={onChange} name="name" />
         </label>
 
-        <label>
+        <label className={css.lblEmail}>
           Enter your email
-          <input onChange={onChange} name="email" />
+          <input className={css.InputEmail} onChange={onChange} name="email" />
         </label>
-        <label>
+        <label className={css.lblPassword}>
           Enter your password
-          <input onChange={onChange} name="password" />
+          <input
+            className={css.InputPassword}
+            onChange={onChange}
+            name="password"
+          />
         </label>
 
-        <button type="submit">Register</button>
+        <button className={css.button} type="submit">
+          Register
+        </button>
       </form>
     </>
   );

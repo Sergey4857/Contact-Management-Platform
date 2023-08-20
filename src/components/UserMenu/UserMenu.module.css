@@ -1,0 +1,36 @@
+.Link {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+  margin-right: 20px;
+  font-weight: bold;
+  margin-right: auto;
+  font-size: 24px;
+}
+
+.Link:hover {
+  color: #007bff;
+}
+
+p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.button {
+  color: black;
+  border: none;
+  display: block;
+  min-width: 60px;
+  height: 30px;
+  border-radius: 20px;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  margin-left: 20px;
+}
+
+.button:hover {
+  background-color: #007bff;
+}

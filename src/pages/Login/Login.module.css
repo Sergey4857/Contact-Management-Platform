@@ -1,0 +1,45 @@
+/* Стили для формы логина */
+.formLogin {
+  background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  min-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lblEmail,
+.lblPassword {
+  display: block;
+  text-align: start;
+  font-weight: bold;
+}
+
+.inputEmail,
+.inputPassword {
+  width: 100%;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2; /* Светло-серый фон */
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #006699; /* Темно-голубая кнопка */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #005588; /* Темно-голубая кнопка при наведении */
+}

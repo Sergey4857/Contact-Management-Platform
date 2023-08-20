@@ -39,7 +39,7 @@ const AuthSlice = createSlice({
     },
     [refresh.fulfilled](state, action) {
       state.isLogged = true;
-      state.user = action.payload.user;
+      state.user = action.payload;
       state.isLoading = false;
       state.isRefreshing = false;
     },
