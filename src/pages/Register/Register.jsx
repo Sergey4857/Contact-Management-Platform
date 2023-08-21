@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'Redux/Auth/AuthOperations';
-
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import css from './Register.module.css';
 
@@ -66,6 +66,13 @@ const Register = () => {
             name="password"
           />
         </label>
+
+        <p className={css.account}>
+          Do you already have an account?{' '}
+          <Link className={css.login} to="/login">
+            Log in
+          </Link>
+        </p>
 
         <button className={css.button} type="submit">
           Register

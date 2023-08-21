@@ -57,9 +57,18 @@
 
 .registerWrapper {
   height: 95vh;
-  background-image: url(../../znnokox-200604-01.jpg);
+  background-image: url(../../znnokox-200604-01-min.jpg);
   background-size: cover;
 
   display: flex;
   align-items: center;
+}
+
+.login {
+  text-decoration: none;
+  color: rgb(73, 76, 236);
+}
+
+.login:hover {
+  color: rgb(24, 195, 58);
 }

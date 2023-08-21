@@ -32,6 +32,6 @@
 
 .content {
   min-height: 95vh;
-  background-image: url(../../beach.jpg);
+  background-image: url(../../beach-min.jpg);
   background-size: cover;
 }
