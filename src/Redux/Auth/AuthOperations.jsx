@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { createAction } from '@reduxjs/toolkit';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -28,9 +29,8 @@ export const login = createAsyncThunk('auth/login', async (info, thunkAPI) => {
     setToken(data.token);
     return data;
   } catch (error) {
-    console.log(error);
     if (error.response.status === 400) {
-      error.message = 'Неправильный логин или пароль';
+      error.message = 'Incorrect login or password';
     }
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -60,10 +60,12 @@ export const refresh = createAsyncThunk(
     setToken(token);
     try {
       const res = await axios.get('/users/current');
-      console.log(res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+export const clearLoginError = createAction('auth/clearLoginError');

@@ -5,14 +5,14 @@ const HomePage = () => {
   return (
     <div className={css.wrap}>
       <div className={css.content}>
-        <section class="welcome">
+        <section>
           <h1 className={css.title}>
             Welcome to Our Contact Management Platform
           </h1>
           <p>Store, edit, and filter your contacts with ease.</p>
         </section>
 
-        <section class="instructions">
+        <section>
           <Link to="/register" className={css.start}>
             Getting Started
           </Link>
@@ -30,7 +30,7 @@ const HomePage = () => {
           </p>
         </section>
 
-        <section class="benefits">
+        <section>
           <h2>Benefits of Using Our Platform</h2>
           <ul>
             <li>Effortlessly store and organize your contacts.</li>

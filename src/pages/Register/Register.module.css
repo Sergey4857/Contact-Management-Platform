@@ -57,8 +57,9 @@
 
 .registerWrapper {
   height: 95vh;
-  background-image: url(../../beach.jpg);
+  background-image: url(../../znnokox-200604-01.jpg);
   background-size: cover;
+
   display: flex;
   align-items: center;
 }

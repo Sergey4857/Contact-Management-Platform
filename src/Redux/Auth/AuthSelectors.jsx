@@ -4,3 +4,5 @@ export const selectRefreshed = state => state.auth.isRefreshing;
 
 export const selectUserName = state =>
   state.auth.user ? state.auth.user.name : '';
+
+export const selectError = state => state.auth.error;

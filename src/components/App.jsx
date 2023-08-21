@@ -13,6 +13,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
 import Spinner from './Spinner/Spinner';
 import { selectIsLoading } from 'Redux/Contacts/Selectors';
+import { ToastContainer } from 'react-toastify';
 
 export function App() {
   const dispatch = useDispatch();
@@ -26,7 +27,9 @@ export function App() {
   return (
     !isRefreshed && (
       <>
+        <ToastContainer />
         {loading && <Spinner />}
+
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

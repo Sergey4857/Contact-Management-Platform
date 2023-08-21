@@ -1,13 +1,16 @@
-import { useDispatch } from 'react-redux';
-import { login } from 'Redux/Auth/AuthOperations';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearLoginError, login } from 'Redux/Auth/AuthOperations';
+import { useEffect, useState } from 'react';
 import css from './Login.module.css';
 import { Link } from 'react-router-dom';
+import { selectError } from 'Redux/Auth/AuthSelectors';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const errorLogin = useSelector(selectError);
 
   const personalData = {
     email,
@@ -29,16 +32,29 @@ const Login = () => {
     }
   };
 
-  const reset = () => {
-    setEmail('');
-    setPassword('');
-  };
-
   const onSubmit = e => {
     e.preventDefault();
+
     dispatch(login(personalData));
-    reset();
+
+    e.currentTarget.reset();
   };
+
+  useEffect(() => {
+    if (errorLogin) {
+      toast.error(errorLogin, {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      dispatch(clearLoginError());
+    }
+  }, [dispatch, errorLogin]);
+
   return (
     <div className={css.wrapper}>
       <form className={css.formLogin} onSubmit={onSubmit}>
