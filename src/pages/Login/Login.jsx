@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { login } from 'Redux/Auth/AuthOperations';
 import { useState } from 'react';
 import css from './Login.module.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -27,29 +28,50 @@ const Login = () => {
         return;
     }
   };
+
+  const reset = () => {
+    setEmail('');
+    setPassword('');
+  };
+
   const onSubmit = e => {
     e.preventDefault();
     dispatch(login(personalData));
+    reset();
   };
   return (
-    <form className={css.formLogin} onSubmit={onSubmit}>
-      <label className={css.lblEmail}>
-        Enter your email
-        <input className={css.inputEmail} onChange={onChange} name="email" />
-      </label>
+    <div className={css.wrapper}>
+      <form className={css.formLogin} onSubmit={onSubmit}>
+        <label className={css.lblEmail}>
+          Enter your email
+          <input
+            className={css.inputEmail}
+            type="text"
+            name="email"
+            onChange={onChange}
+            required
+          />
+        </label>
 
-      <label className={css.lblPassword}>
-        Enter your password
-        <input
-          className={css.inputPassword}
-          onChange={onChange}
-          name="password"
-        />
-      </label>
-      <button className={css.button} type="submit">
-        Login
-      </button>
-    </form>
+        <label className={css.lblPassword}>
+          Enter your password
+          <input
+            className={css.inputPassword}
+            onChange={onChange}
+            name="password"
+          />
+        </label>
+        <p className={css.account}>
+          Don't have an account yet?{' '}
+          <Link className={css.register} to="/register">
+            Register
+          </Link>
+        </p>
+        <button className={css.button} type="submit">
+          Login
+        </button>
+      </form>
+    </div>
   );
 };
 

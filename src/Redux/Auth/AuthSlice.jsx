@@ -80,7 +80,7 @@ const AuthSlice = createSlice({
     },
     [refresh.rejected](state, action) {
       state.isLogged = false;
-      state.error = action.payload;
+
       state.isLoading = false;
       state.isRefreshing = false;
     },

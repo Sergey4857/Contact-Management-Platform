@@ -40,12 +40,20 @@ const Register = () => {
   };
 
   return (
-    <>
-      <h1 className={css.title}>Registration</h1>
+    <div className={css.registerWrapper}>
       <form className={css.registerForm} onSubmit={onSubmit}>
         <label className={css.lblName}>
           Enter your nickname
-          <input className={css.InputName} onChange={onChange} name="name" />
+          <input
+            className={css.InputName}
+            onChange={onChange}
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            value={name}
+            required
+          />
         </label>
 
         <label className={css.lblEmail}>
@@ -65,7 +73,7 @@ const Register = () => {
           Register
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

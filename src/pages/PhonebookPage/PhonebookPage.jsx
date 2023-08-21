@@ -31,7 +31,6 @@ export default function PhonebookPage() {
         <div className={css.wrap}>
           {loading && <Spinner />}
           <div className={css.container}>
-            <h1 className={css.PhoneTitle}>Phonebook</h1>
             <ContactForm />
             <h2 className={css.ContactTitle}>Contacts</h2>
             <Filter />

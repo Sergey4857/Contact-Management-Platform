@@ -11,10 +11,13 @@ import { useSelector } from 'react-redux';
 import { selectRefreshed } from 'Redux/Auth/AuthSelectors';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
+import Spinner from './Spinner/Spinner';
+import { selectIsLoading } from 'Redux/Contacts/Selectors';
 
 export function App() {
   const dispatch = useDispatch();
   const isRefreshed = useSelector(selectRefreshed);
+  const loading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(refresh());
@@ -23,6 +26,7 @@ export function App() {
   return (
     !isRefreshed && (
       <>
+        {loading && <Spinner />}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

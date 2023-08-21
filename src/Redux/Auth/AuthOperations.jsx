@@ -28,6 +28,10 @@ export const login = createAsyncThunk('auth/login', async (info, thunkAPI) => {
     setToken(data.token);
     return data;
   } catch (error) {
+    console.log(error);
+    if (error.response.status === 400) {
+      error.message = 'Неправильный логин или пароль';
+    }
     return thunkAPI.rejectWithValue(error.message);
   }
 });
