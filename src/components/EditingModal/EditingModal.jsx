@@ -1,17 +1,17 @@
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  addContact,
+  // addContact,
   closeModal,
   updateContact,
 } from 'Redux/Contacts/Operations';
 import {
-  selectContacts,
+  // selectContacts,
   selectUpdateContactId,
 } from 'Redux/Contacts/Selectors';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function EditingModal() {
