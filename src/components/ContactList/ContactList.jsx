@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactList.module.css';
 import getRandomColor from 'helpers/randomColor';
 import { useState } from 'react';
+import { FaUserEdit } from 'react-icons/fa';
+
 import {
   selectModalIsOpen,
   selectUpdateContactId,
@@ -26,7 +28,6 @@ const ContactList = () => {
   const dispatch = useDispatch();
 
   const visibleContacts = useSelector(selectVisibleContacts);
-  console.log(visibleContacts);
 
   const modal = useSelector(selectModalIsOpen);
 
@@ -84,25 +85,28 @@ const ContactList = () => {
             </div>
             {name} : {number}
             <div className={css.contactWrapp}>
-              <button
-                onClick={() => {
-                  dispatch(openModal(id));
-                }}
-              >
-                Ред
-              </button>
-              <a className={css.contactLink} href={`tel:${number}`}>
-                <FiPhoneCall className={css.phoneIcon} />
-              </a>
-              <button
-                className={css.contactLButton}
-                type="button"
-                onClick={() => {
-                  dispatch(deleteContact(id));
-                }}
-              >
-                Delete
-              </button>
+              <div className={css.contactButtons}>
+                <button
+                  className={css.contactMdlBtn}
+                  onClick={() => {
+                    dispatch(openModal(id));
+                  }}
+                >
+                  <FaUserEdit />
+                </button>
+                <a className={css.contactLink} href={`tel:${number}`}>
+                  <FiPhoneCall className={css.phoneIcon} />
+                </a>
+                <button
+                  className={css.contactLButton}
+                  type="button"
+                  onClick={() => {
+                    dispatch(deleteContact(id));
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </li>
         ))}

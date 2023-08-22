@@ -91,6 +91,7 @@ export function EditingModal() {
 
   return (
     <form onSubmit={onSubmit} className={css.modalForm}>
+      <h2>Edit your contact:</h2>
       <input
         className={css.modalInput}
         onChange={handleChange}
