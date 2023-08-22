@@ -4,6 +4,7 @@ import { selectIsLogged } from 'Redux/Auth/AuthSelectors';
 import UserMenu from 'components/UserMenu/UserMenu';
 import AuthNav from 'components/AuthNav/AuthNav';
 import css from './Navigation.module.css';
+import { Sound } from 'components/PlaySound/PlaySound';
 
 const Navigation = () => {
   const isLogged = useSelector(selectIsLogged);
@@ -13,7 +14,9 @@ const Navigation = () => {
       <Link className={css.home} to="/">
         Home
       </Link>
+
       {isLogged ? <UserMenu /> : <AuthNav />}
+      <Sound />
     </>
   );
 };

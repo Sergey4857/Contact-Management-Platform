@@ -97,7 +97,7 @@ export function EditingModal() {
         onChange={handleChange}
         type="text"
         name="name"
-        placeholder="Enter contact name"
+        placeholder="Enter changed name"
         pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         value={name}
@@ -108,7 +108,7 @@ export function EditingModal() {
         onChange={handleChange}
         type="tel"
         name="number"
-        placeholder="Enter your phone"
+        placeholder="Enter changed phone"
         pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
         title="Phone phone must be digits and can contain spaces, dashes, parentheses and can start with +"
         value={number}
