@@ -4,6 +4,9 @@ import {
   deleteContact,
   sortContactAscend,
   sortContactDescend,
+  updateContact,
+  openModal,
+  closeModal,
 } from './Operations';
 
 const { createSlice } = require('@reduxjs/toolkit');
@@ -22,6 +25,8 @@ const ContactSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
+    updateContactId: null,
+    openModal: false,
   },
   extraReducers: {
     [fetchContacts.pending]: isLoading,
@@ -69,6 +74,30 @@ const ContactSlice = createSlice({
 
     [sortContactDescend.pending](state, action) {
       state.isLoading = true;
+    },
+    [updateContact.fulfilled](state, action) {
+      const index = state.items.findIndex(
+        contact => contact.id === action.payload.id
+      );
+
+      state.items[index].name = action.payload.name;
+      state.items[index].number = action.payload.number;
+
+      state.openModal = false;
+      state.isLoading = false;
+    },
+    [updateContact.rejected]: error,
+
+    [updateContact.pending](state, action) {
+      state.isLoading = true;
+    },
+
+    [openModal.type](state, action) {
+      state.openModal = !state.openModal;
+      state.updateContactId = action.payload;
+    },
+    [closeModal.type](state, action) {
+      state.openModal = false;
     },
   },
 });

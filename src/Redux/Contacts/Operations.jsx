@@ -1,13 +1,12 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+import { createAction } from '@reduxjs/toolkit';
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(
-        'https://64d4d634b592423e4694c1f9.mockapi.io/contacts'
-      );
+      const response = await axios.get('/contacts');
 
       return response.data;
     } catch (error) {
@@ -20,10 +19,7 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (text, thunkAPI) => {
     try {
-      const response = await axios.post(
-        'https://64d4d634b592423e4694c1f9.mockapi.io/contacts',
-        text
-      );
+      const response = await axios.post('/contacts', text);
 
       return response.data;
     } catch (error) {
@@ -36,9 +32,7 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(
-        `https://64d4d634b592423e4694c1f9.mockapi.io/contacts/${id}`
-      );
+      const response = await axios.delete(`contacts/${id}`);
 
       return response.data;
     } catch (error) {
@@ -51,9 +45,7 @@ export const sortContactAscend = createAsyncThunk(
   'contacts/sortContact',
   async (text, thunkAPI) => {
     try {
-      const response = await axios.get(
-        'https://64d4d634b592423e4694c1f9.mockapi.io/contacts?sortBy=name&order=asc'
-      );
+      const response = await axios.get('/contacts?sortBy=name&order=asc');
 
       return response.data;
     } catch (error) {
@@ -65,9 +57,7 @@ export const sortContactDescend = createAsyncThunk(
   'contacts/sortContact',
   async (text, thunkAPI) => {
     try {
-      const response = await axios.get(
-        'https://64d4d634b592423e4694c1f9.mockapi.io/contacts?sortBy=name&order=desc'
-      );
+      const response = await axios.get('/contacts?sortBy=name&order=desc');
 
       return response.data;
     } catch (error) {
@@ -75,3 +65,23 @@ export const sortContactDescend = createAsyncThunk(
     }
   }
 );
+
+export const updateContact = createAsyncThunk(
+  'contacts/updateContact',
+  async ({ number, name, id }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`contacts/${id}`, {
+        number,
+        name,
+      });
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const openModal = createAction('auth/openModal');
+
+export const closeModal = createAction('auth/closeModal');

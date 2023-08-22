@@ -2,22 +2,35 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactList.module.css';
 import getRandomColor from 'helpers/randomColor';
 import { useState } from 'react';
-import { selectVisibleContacts } from 'Redux/Contacts/Selectors';
+import {
+  selectModalIsOpen,
+  selectUpdateContactId,
+  selectVisibleContacts,
+} from 'Redux/Contacts/Selectors';
 import { ImSortAlphaAsc, ImSortAlphaDesc } from 'react-icons/im';
 import { FaRandom } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
+
 import {
   deleteContact,
   sortContactAscend,
   sortContactDescend,
   fetchContacts,
+  openModal,
 } from 'Redux/Contacts/Operations';
+import { EditingModal } from 'components/EditingModal/EditingModal';
 
 const ContactList = () => {
   const [sortAscending, setSortAscending] = useState(true);
+  const openedModal = useSelector(selectModalIsOpen);
   const dispatch = useDispatch();
 
   const visibleContacts = useSelector(selectVisibleContacts);
+  console.log(visibleContacts);
+
+  const modal = useSelector(selectModalIsOpen);
+
+  const selectedContactId = useSelector(selectUpdateContactId);
 
   const toggleSort = () => {
     if (sortAscending) {
@@ -29,37 +42,56 @@ const ContactList = () => {
     }
   };
 
+  const backgroundColor = id => {
+    if (id === selectedContactId && modal) {
+      return { backgroundColor: 'red' };
+    } else return { backgroundColor: 'transparent' };
+  };
+
   return (
     <>
-      <button onClick={toggleSort} type="button" className={css.sortButton}>
-        {sortAscending ? (
-          <ImSortAlphaAsc className={css.sortIcon} />
-        ) : (
-          <ImSortAlphaDesc className={css.sortIcon} />
-        )}
-      </button>
+      {!openedModal && (
+        <>
+          <button onClick={toggleSort} type="button" className={css.sortButton}>
+            {sortAscending ? (
+              <ImSortAlphaAsc className={css.sortIcon} />
+            ) : (
+              <ImSortAlphaDesc className={css.sortIcon} />
+            )}
+          </button>
 
-      <button
-        onClick={() => {
-          dispatch(fetchContacts());
-        }}
-        type="button"
-        className={css.randomButton}
-      >
-        <FaRandom className={css.randomIcon} />
-      </button>
+          <button
+            onClick={() => {
+              dispatch(fetchContacts());
+            }}
+            type="button"
+            className={css.randomButton}
+          >
+            <FaRandom className={css.randomIcon} />
+          </button>
+        </>
+      )}
+
+      {modal && <EditingModal />}
       <ul className={css.contactList}>
-        {visibleContacts.map(({ id, name, phone }) => (
-          <li className={css.contactItem} key={id}>
+        {visibleContacts.map(({ id, name, number }) => (
+          <li style={backgroundColor(id)} className={css.contactItem} key={id}>
             <div
               style={{ backgroundColor: getRandomColor() }}
               className={css.contactFirstLetter}
             >
               {name.slice(0, 1).toUpperCase()}
             </div>
-            {name} : {phone}
+            {name} : {number}
             <div className={css.contactWrapp}>
-              <a className={css.contactLink} href={`tel:${phone}`}>
+              <button
+                onClick={() => {
+                  dispatch(openModal(id));
+                }}
+              >
+                Ред
+              </button>
+              <a className={css.contactLink} href={`tel:${number}`}>
                 <FiPhoneCall className={css.phoneIcon} />
               </a>
               <button

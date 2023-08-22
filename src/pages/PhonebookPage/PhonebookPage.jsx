@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectIsLoading,
+  selectModalIsOpen,
   selectVisibleContacts,
 } from '../../Redux/Contacts/Selectors';
 import { ToastContainer } from 'react-toastify';
@@ -17,7 +18,7 @@ import Spinner from '../../components/Spinner/Spinner';
 export default function PhonebookPage() {
   const visibleContacts = useSelector(selectVisibleContacts);
   const loading = useSelector(selectIsLoading);
-
+  const openedModal = useSelector(selectModalIsOpen);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,10 +32,13 @@ export default function PhonebookPage() {
         <div className={css.wrap}>
           {loading && <Spinner />}
           <div className={css.container}>
-            <ContactForm />
-            <h2 className={css.ContactTitle}>Contacts</h2>
-            <Filter />
-
+            {!openedModal && (
+              <>
+                <ContactForm />
+                <h2 className={css.ContactTitle}>Contacts</h2>
+                <Filter />
+              </>
+            )}
             {visibleContacts.length > 0 ? (
               <ContactList />
             ) : (
