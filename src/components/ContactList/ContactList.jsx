@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { FaUserEdit } from 'react-icons/fa';
 
 import {
-  selectContacts,
   selectModalIsOpen,
   selectUpdateContactId,
   selectVisibleContacts,
@@ -18,7 +17,6 @@ import {
   deleteContact,
   sortContactAscend,
   sortContactDescend,
-  fetchContacts,
   openModal,
   sortContactRandom,
 } from 'Redux/Contacts/Operations';
@@ -31,7 +29,6 @@ const ContactList = () => {
 
   const visibleContacts = useSelector(selectVisibleContacts);
 
-  const contacts = useSelector(selectContacts);
   const modal = useSelector(selectModalIsOpen);
 
   const selectedContactId = useSelector(selectUpdateContactId);
