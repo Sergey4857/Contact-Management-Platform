@@ -48,7 +48,9 @@ const ContactList = () => {
 
   const backgroundColor = id => {
     if (id === selectedContactId && modal) {
-      return { backgroundColor: 'red' };
+      return {
+        backgroundColor: 'red',
+      };
     } else return { backgroundColor: 'transparent' };
   };
 

@@ -5,6 +5,17 @@
   color: #333;
   transition: color 0.3s ease;
   margin-right: 20px;
+  max-width: 90px;
+}
+@media screen and (max-width: 387px) {
+  .home {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 387px) and (max-width: 740px) {
+  .home {
+    font-size: 18px;
+  }
 }
 
 .home:hover {

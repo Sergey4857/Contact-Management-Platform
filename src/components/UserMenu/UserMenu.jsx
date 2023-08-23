@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { selectUserName } from 'Redux/Auth/AuthSelectors';
 import css from './UserMenu.module.css';
 
+import { ImExit } from 'react-icons/im';
+
 const UserMenu = () => {
   const user = useSelector(selectUserName);
   const dispatch = useDispatch();
@@ -13,9 +15,9 @@ const UserMenu = () => {
       <Link className={css.Link} to="phonebook">
         PhonebookPage
       </Link>
-      <p>User:{user}</p>
+      <p className={css.text}>User:{user}</p>
       <button className={css.button} onClick={() => dispatch(logOut())}>
-        logout
+        <ImExit />
       </button>
     </>
   );
