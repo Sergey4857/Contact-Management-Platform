@@ -41,31 +41,6 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
-export const sortContactAscend = createAsyncThunk(
-  'contacts/sortContact',
-  async (text, thunkAPI) => {
-    try {
-      const response = await axios.get('/contacts?sortBy=name&order=asc');
-
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-export const sortContactDescend = createAsyncThunk(
-  'contacts/sortContact',
-  async (text, thunkAPI) => {
-    try {
-      const response = await axios.get('/contacts?sortBy=name&order=desc');
-
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
   async ({ number, name, id }, thunkAPI) => {
@@ -81,6 +56,11 @@ export const updateContact = createAsyncThunk(
     }
   }
 );
+export const sortContactAscend = createAction('contacts/sortContactAscend');
+
+export const sortContactDescend = createAction('contacts/sortContactDescend');
+
+export const sortContactRandom = createAction('contacts/sortContactRandom');
 
 export const openModal = createAction('auth/openModal');
 

@@ -4,6 +4,7 @@ import {
   deleteContact,
   sortContactAscend,
   sortContactDescend,
+  sortContactRandom,
   updateContact,
   openModal,
   closeModal,
@@ -55,26 +56,7 @@ const ContactSlice = createSlice({
       state.items = state.items.filter(item => item.id !== action.payload.id);
     },
     [deleteContact.rejected]: error,
-    [sortContactAscend.fulfilled](state, action) {
-      state.items = action.payload;
-      state.isLoading = false;
-      state.error = null;
-    },
-    [sortContactAscend.rejected]: error,
 
-    [sortContactAscend.pending](state, action) {
-      state.isLoading = true;
-    },
-    [sortContactDescend.fulfilled](state, action) {
-      state.items = action.payload;
-      state.isLoading = false;
-      state.error = null;
-    },
-    [sortContactDescend.rejected]: error,
-
-    [sortContactDescend.pending](state, action) {
-      state.isLoading = true;
-    },
     [updateContact.fulfilled](state, action) {
       const index = state.items.findIndex(
         contact => contact.id === action.payload.id
@@ -90,6 +72,20 @@ const ContactSlice = createSlice({
 
     [updateContact.pending](state, action) {
       state.isLoading = true;
+    },
+    [sortContactAscend.type](state) {
+      state.items = [...state.items].sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+    },
+    [sortContactDescend.type](state) {
+      state.items = [...state.items].sort((a, b) =>
+        b.name.localeCompare(a.name)
+      );
+    },
+
+    [sortContactRandom.type](state) {
+      state.items = state.items.sort(() => Math.random() - 0.5);
     },
 
     [openModal.type](state, action) {

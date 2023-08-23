@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FaUserEdit } from 'react-icons/fa';
 
 import {
+  selectContacts,
   selectModalIsOpen,
   selectUpdateContactId,
   selectVisibleContacts,
@@ -19,6 +20,7 @@ import {
   sortContactDescend,
   fetchContacts,
   openModal,
+  sortContactRandom,
 } from 'Redux/Contacts/Operations';
 import { EditingModal } from 'components/EditingModal/EditingModal';
 
@@ -29,6 +31,7 @@ const ContactList = () => {
 
   const visibleContacts = useSelector(selectVisibleContacts);
 
+  const contacts = useSelector(selectContacts);
   const modal = useSelector(selectModalIsOpen);
 
   const selectedContactId = useSelector(selectUpdateContactId);
@@ -63,7 +66,7 @@ const ContactList = () => {
 
           <button
             onClick={() => {
-              dispatch(fetchContacts());
+              dispatch(sortContactRandom());
             }}
             type="button"
             className={css.randomButton}
