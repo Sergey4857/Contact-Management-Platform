@@ -39,11 +39,9 @@ p {
   justify-content: center;
   font-size: 18px;
 }
-
 .button:hover {
   background-color: #70b5ff;
 }
-
 .text {
   margin-top: auto;
   margin-bottom: auto;
