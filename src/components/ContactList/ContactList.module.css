@@ -71,6 +71,14 @@
   color: #333;
   vertical-align: middle;
 }
+@media screen and (max-width: 425px) {
+  .sortIcon,
+  .randomIcon,
+  .phoneIcon {
+    font-size: 16px;
+  }
+}
+
 .phoneIcon {
   font-size: 16px;
 
@@ -95,6 +103,12 @@
   color: #fff;
   -webkit-text-stroke: 0.7px black;
 }
+@media screen and (max-width: 425px) {
+  .contactFirstLetter {
+    display: none;
+  }
+}
+
 .contactWrapp {
   margin-left: auto;
 }
@@ -111,6 +125,14 @@
   border-radius: 4px;
   cursor: pointer;
 }
+@media screen and (max-width: 425px) {
+  .contactMdlBtn,
+  .phoneIcon {
+    font-size: 16px;
+    padding: 5px;
+  }
+}
+
 .contactMdlBtn:hover {
   background-color: #867f31;
 }

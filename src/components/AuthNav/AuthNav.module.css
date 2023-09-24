@@ -13,9 +13,60 @@
 .login {
   background-color: #00aaff; /* Голубой цвет для "Login" */
 }
+@media screen and (max-width: 320px) {
+  .login {
+    font-size: 14px;
+    max-height: 10px;
+    max-width: 40px;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 765px) {
+  .login {
+    height: 13px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .login {
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .login {
+  }
+}
 
 .register {
   background-color: #0077cc; /* Темнее голубой для "Register" */
+}
+@media screen and (max-width: 320px) {
+  .register {
+    font-size: 14px;
+    max-height: 10px;
+    max-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 765px) {
+  .register {
+    height: 13px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    justify-content: center;
+  }
 }
 
 .login:hover,

@@ -7,14 +7,30 @@
   margin-right: 20px;
   max-width: 90px;
 }
-@media screen and (max-width: 387px) {
-  .home {
-    font-size: 12px;
-  }
-}
-@media screen and (min-width: 387px) and (max-width: 740px) {
+@media screen and (max-width: 767px) {
   .home {
     font-size: 18px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .home {
+    margin-right: 180px;
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+  .home {
+    margin-right: 235px;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 2560px) {
+  .home {
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    margin-left: 10px;
   }
 }
 

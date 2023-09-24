@@ -11,11 +11,16 @@ const Navigation = () => {
 
   return (
     <>
-      <Link className={css.home} to="/">
-        Home
-      </Link>
-
-      {isLogged ? <UserMenu /> : <AuthNav />}
+      {isLogged ? (
+        <UserMenu />
+      ) : (
+        <>
+          <Link className={css.home} to="/">
+            Home
+          </Link>
+          <AuthNav />
+        </>
+      )}
       <Sound />
     </>
   );

@@ -73,6 +73,7 @@ const Login = () => {
           Enter your password
           <input
             className={css.inputPassword}
+            type="password"
             onChange={onChange}
             name="password"
           />

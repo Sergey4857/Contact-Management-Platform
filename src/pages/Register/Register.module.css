@@ -72,3 +72,9 @@
 .login:hover {
   color: rgb(24, 195, 58);
 }
+
+@media screen and (max-width: 340px) {
+  .account {
+    font-size: 14px;
+  }
+}

@@ -10,6 +10,11 @@
   font-size: 20px;
   margin-bottom: 10px;
 }
+@media screen and (max-width: 425px) {
+  .ContactTitle {
+    font-size: 18px;
+  }
+}
 
 .wrap {
   margin-left: auto;
@@ -22,13 +27,39 @@
   border-radius: 2%;
   height: 750px;
 }
+@media screen and (max-width: 425px) {
+  .wrap {
+    max-width: 310px;
+
+    background-image: url(../../—Pngtree—mobile\ phone\ png\ smartphone\ camera_6067581.png);
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .wrap {
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .wrap {
+  }
+}
 
 .container {
-  max-width: 350px;
+  max-width: 340px;
   height: 630px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 120px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .content {

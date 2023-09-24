@@ -41,9 +41,15 @@ const HomePage = () => {
           <section>
             <h2>Benefits of Using Our Platform</h2>
             <ul>
-              <li>Effortlessly store and organize your contacts.</li>
-              <li>Quickly filter and find specific contacts.</li>
-              <li>Access your contacts from any device.</li>
+              <li className={css.items}>
+                Effortlessly store and organize your contacts.
+              </li>
+              <li className={css.items}>
+                Quickly filter and find specific contacts.
+              </li>
+              <li className={css.items}>
+                Access your contacts from any device.
+              </li>
             </ul>
           </section>
 

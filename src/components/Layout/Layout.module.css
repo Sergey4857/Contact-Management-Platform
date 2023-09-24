@@ -7,6 +7,19 @@
   display: flex;
   min-height: 5vh;
   align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@media screen and (max-width: 1199px) {
+  .header {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+  }
 }
 
 .container {

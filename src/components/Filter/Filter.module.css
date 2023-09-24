@@ -6,3 +6,8 @@
   width: 200px;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 425px) {
+  .filterInput {
+    max-width: 150px;
+  }
+}
