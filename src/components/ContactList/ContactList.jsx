@@ -91,7 +91,7 @@ const ContactList = () => {
                 <button
                   className={css.contactMdlBtn}
                   onClick={() => {
-                    dispatch(openModal(id));
+                    dispatch(openModal({ id, name, number }));
                   }}
                 >
                   <FaUserEdit />

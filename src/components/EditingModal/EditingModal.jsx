@@ -8,18 +8,22 @@ import {
   updateContact,
 } from 'Redux/Contacts/Operations';
 import {
-  // selectContacts,
+  selectdataUpdatedContact,
   selectUpdateContactId,
 } from 'Redux/Contacts/Selectors';
 // import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function EditingModal() {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
 
   const id = useSelector(selectUpdateContactId);
+
+  const data = useSelector(selectdataUpdatedContact);
+
+  const [name, setName] = useState(data.name);
+  const [number, setNumber] = useState(data.number);
+
   const handleChange = e => {
     const { name, value } = e.currentTarget;
 
@@ -49,42 +53,7 @@ export function EditingModal() {
     if (newContact.name.trim() === '') {
       return alert('Enter your name');
     }
-    // const repeatingNumber = contacts.find(
-    //   value => value.number === newContact.number
-    // );
 
-    // const repeatingName = contacts.find(
-    //   value =>
-    //     value.name.toLowerCase().trim() === newContact.name.toLowerCase().trim()
-    // );
-
-    // if (repeatingNumber) {
-    //   return toast.success(
-    //     `Number: ${newContact.number} is already in contacts`,
-    //     {
-    //       position: 'top-right',
-    //       autoClose: 3000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true,
-    //       progress: undefined,
-    //       theme: 'light',
-    //     }
-    //   );
-    // }
-    // if (repeatingName) {
-    //   return toast.success(`${newContact.name} is already in contacts`, {
-    //     position: 'top-right',
-    //     autoClose: 3000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: 'light',
-    //   });
-    // }
     dispatch(updateContact(newContact));
     reset();
   };

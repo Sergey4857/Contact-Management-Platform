@@ -27,6 +27,7 @@ const ContactSlice = createSlice({
     isLoading: false,
     error: null,
     updateContactId: null,
+    dataUpdatedContact: {},
     openModal: false,
   },
   extraReducers: {
@@ -90,7 +91,9 @@ const ContactSlice = createSlice({
 
     [openModal.type](state, action) {
       state.openModal = !state.openModal;
-      state.updateContactId = action.payload;
+      state.updateContactId = action.payload.id;
+      state.dataUpdatedContact.name = action.payload.name;
+      state.dataUpdatedContact.number = action.payload.number;
     },
     [closeModal.type](state, action) {
       state.openModal = false;

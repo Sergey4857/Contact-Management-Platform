@@ -8,6 +8,9 @@ export const selectIsLoading = state => state.contacts.isLoading;
 
 export const selectModalIsOpen = state => state.contacts.openModal;
 
+export const selectdataUpdatedContact = state =>
+  state.contacts.dataUpdatedContact;
+
 export const selectUpdateContactId = state => state.contacts.updateContactId;
 
 export const selectVisibleContacts = createSelector(
