@@ -5,6 +5,7 @@ import css from './Login.module.css';
 import { Link } from 'react-router-dom';
 import { selectError } from 'Redux/Auth/AuthSelectors';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const dispatch = useDispatch();
