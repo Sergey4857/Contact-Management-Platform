@@ -18,5 +18,5 @@ HarmonyContacts offers a unique and soothing experience for organizing your cont
 
 ## Getting Started
 
-(https://sergey4857.github.io/Contact-Management-Platform/)https://sergey4857.github.io/Contact-Management-Platform/
+(https://sergey4857.github.io/Contact-Management-Platform/)
 
