@@ -1,7 +1,7 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "Contact-Management-Platform",
   "version": "0.1.0",
-  "homepage": "https://Sergey4857.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://Sergey4857.github.io/Contact-Management-Platform/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
