@@ -1,10 +1,10 @@
-# HarmonyContacts
+# Contact-Management-Platform
 
-Welcome to HarmonyContacts, your stylish online platform for contact management inspired by serene ocean rhythms and picturesque coastal vistas.
+Welcome to Contact-Management-Platform, your stylish online platform for contact management inspired by serene ocean rhythms and picturesque coastal vistas.
 
 ## Overview
 
-HarmonyContacts offers a unique and soothing experience for organizing your contacts. Immerse yourself in the calming ambiance of ocean views and soothing music while effortlessly creating, editing, sorting, and deleting contacts. Your personalized account ensures that your contacts are always within reach, surrounded by the tranquil rhythm of the sea.
+Contact-Management-Platform offers a unique and soothing experience for organizing your contacts. Immerse yourself in the calming ambiance of ocean views and soothing music while effortlessly creating, editing, sorting, and deleting contacts. Your personalized account ensures that your contacts are always within reach, surrounded by the tranquil rhythm of the sea.
 
 ## Features
 
